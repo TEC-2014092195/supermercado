@@ -1,5 +1,13 @@
-var app = angular.module('WingWatchApp',['ngRoute','routeStyles']);
+var app = angular.module('SupermercadoApp', ['ngRoute', 'routeStyles','flow']);
 app.config(['$routeProvider', function($routeProvider) {
-	  $routeProvider.when('/login', {templateUrl: '_wing-watch-core/components/login-registro/login-registroView.html', controller:'login-registroCtrl', css: ['assets/css/login-registro.css','assets/css/registro.css']});
-  	$routeProvider.otherwise({redirectTo: '/login'});
+    $routeProvider.when('/login', {
+        templateUrl: '_core/components/login/loginView.html',
+        controller: 'loginCtrl',
+        css: ['assets/css/login.css']
+    });
+    $routeProvider.otherwise({
+        redirectTo: '/login'
+    });
 }]);
+
+
