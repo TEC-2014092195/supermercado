@@ -31,7 +31,7 @@ DELIMITER ;
 -- Dumping structure for procedure supermercado.actualizarUsuario
 DROP PROCEDURE IF EXISTS `actualizarUsuario`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizarUsuario`(IN `pcorreo` VARCHAR(255), IN `pnombre` VARCHAR(50), IN `papellido1` VARCHAR(50), IN `papellido2` VARCHAR(50), IN `pclave` VARCHAR(255), IN `pfoto` BLOB)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizarUsuario`(IN `pcorreo` VARCHAR(255), IN `pnombre` VARCHAR(50), IN `papellido1` VARCHAR(50), IN `papellido2` VARCHAR(50), IN `pclave` VARCHAR(255), IN `pfoto` LONGBLOB)
 BEGIN
 update usuario set usuario.nombre=nombre,usuario.apellido1=papellido1,usuario.apellido2=papellido2,usuario.clave=pclave,usuario.foto=pfoto
 where usuario.correo = pcorreo;
@@ -42,7 +42,7 @@ DELIMITER ;
 -- Dumping structure for procedure supermercado.insertarProducto
 DROP PROCEDURE IF EXISTS `insertarProducto`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarProducto`(IN `pID` INT, IN `pnombre` VARCHAR(150), IN `pcant` INT, IN `pcosto` INT, IN `pprecio_final` INT, IN `pdescuento` INT, IN `pfoto` BLOB)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarProducto`(IN `pID` INT, IN `pnombre` VARCHAR(150), IN `pcant` INT, IN `pcosto` INT, IN `pprecio_final` INT, IN `pdescuento` INT, IN `pfoto` LONGBLOB)
 BEGIN
 insert into producto(ID,nombre,cant_inventario,costo,precio_final,descuento,foto)
 values (pID,pnombre,pcant,pcosto,pprecio_final,pdescuento,pfoto);
@@ -53,7 +53,7 @@ DELIMITER ;
 -- Dumping structure for procedure supermercado.insertarUsuario
 DROP PROCEDURE IF EXISTS `insertarUsuario`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarUsuario`(IN `pcorreo` VARCHAR(255), IN `pnombre` VARCHAR(50), IN `papellido1` VARCHAR(50), IN `papellido2` VARCHAR(50), IN `pclave` VARCHAR(255), IN `pfoto` BLOB)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarUsuario`(IN `pcorreo` VARCHAR(255), IN `pnombre` VARCHAR(50), IN `papellido1` VARCHAR(50), IN `papellido2` VARCHAR(50), IN `pfoto` LONGBLOB)
 BEGIN
 insert into usuario (correo,nombre,apellido1,apellido2,clave,es_admin,foto)
 values(pcorreo,pnombre,papellido1,papellido2,pclave,0,pfoto);
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `costo` int(11) NOT NULL,
   `precio_final` int(11) NOT NULL,
   `descuento` int(11) NOT NULL,
-  `foto` blob NOT NULL,
+  `foto` longblob NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `apellido2` varchar(50) NOT NULL,
   `clave` varchar(255) NOT NULL,
   `es_admin` bit(1) NOT NULL,
-  `foto` blob NOT NULL,
+  `foto` longblob NOT NULL,
   PRIMARY KEY (`correo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
