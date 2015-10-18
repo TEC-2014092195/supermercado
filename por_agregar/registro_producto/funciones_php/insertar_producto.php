@@ -15,7 +15,6 @@
 
     $stmt->bind_param('isiiiis', $id, $nombre, $cantidad, $costo, $precio_final, $descuento, $foto);
 
-    $orden = $objeto->orden->ORDEN;
     $id = $objeto->codigo;
     $nombre = $objeto->nombre;
     $cantidad = $objeto->cantidad;

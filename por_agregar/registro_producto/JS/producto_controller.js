@@ -15,8 +15,9 @@ app.controller('productoeCtrl', ['$scope', '$http', '$location', function($scope
     var $promise = $http.post('funciones_php/insertar_producto.php',producto);
     $promise.then(function(msg) {
         // $scope.catalogoZona = msg.data;
-        console.log(msg.data);
     });
+    location.reload();
+    alert("Producto Registrado");
   }
 
 }]);
@@ -37,17 +38,3 @@ function previewFile() {
     preview.src = "";
   }
 };
-
-$('.ui.form')
-  .form({
-    fields: {
-      codigo     : 'empty',
-      nombre   : 'empty',
-      cantidad : 'empty',
-      costo : 'empty',
-      precio_final : 'empty',
-      descuento : 'empty',
-      foto : 'empty'
-    }
-  })
-;
