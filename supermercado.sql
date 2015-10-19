@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2015 a las 10:52:03
+-- Tiempo de generación: 17-10-2015 a las 18:25:43
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -65,7 +65,7 @@ DELIMITER ;
 --
 
 CREATE TABLE IF NOT EXISTS `producto` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `nombre` varchar(150) NOT NULL,
   `cant_inventario` int(11) NOT NULL,
   `costo` int(11) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `descuento` int(11) NOT NULL,
   `foto` longblob NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

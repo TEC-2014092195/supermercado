@@ -8,17 +8,15 @@
         printf("Connect failed: %s\n", mysqli_connect_error());
         exit();
     } 
-    $stmt = $mysqli->prepare("CALL insertarUsuario(?,?,?,?,?,?)");
-    $stmt->bind_param('ssssss', $email, $nombre, $p_apellido, $s_apellido, $password, $foto);
+    $stmt = $mysqli->prepare("Select login(?,?)");
+    $stmt->bind_param('ss', $email, $password);
     
     $email = $newUser->email;
-    $nombre = $newUser->nombre;
-    $p_apellido = $newUser->p_apellido;
-    $s_apellido = $newUser->s_apellido;
     $password = $newUser->password;
-    $foto = $newUser->foto;
     $stmt->execute();
-    echo 'registrado';
+    $stmt->bind_result($nick);
+    $stmt->fetch();
+    echo $nick;
     $stmt->close();
     //echo("Insertado");
     $mysqli->close();

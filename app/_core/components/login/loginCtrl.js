@@ -92,7 +92,7 @@ app.controller('loginCtrl', function($scope, $http, $location) {
                     onApprove: function() {
                         $scope.miImagen = $scope.myCroppedImage;
                         $scope.$apply();
-                        console.log('Aprobado');
+                        //console.log('Aprobado');
                         var $form = $('.form.registro'),
                             allFields = $form.form('get values');
                         allFields.foto = $scope.myImage;
@@ -127,6 +127,18 @@ app.controller('loginCtrl', function($scope, $http, $location) {
         reader.readAsDataURL(file);
     };
     angular.element(document.querySelector('#file')).on('change', handleFileSelect);
+    $scope.login = function() {
+        var $formLogin = $('.form.login'),
+        allFields = $formLogin.form('get values');
+        // console.log(allFields);
+        var $validateResult = $formLogin.form('validate form');
+        if ($validateResult) {
+            $http.post('_core/components/login/loginUsuario.php',allFields)
+            .then(function(message){
+                console.log(message);
+            });
 
+        }
+    }
 
 });
