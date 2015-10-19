@@ -139,6 +139,7 @@ app.controller('loginCtrl', function($scope, $http, $location) {
                 if(message.data === "Not Found"){
                     alert('Intentelo de nuevo');
                 }else{
+                    sessionStorage.es_admin = message.data;
                     $location.path('/home');
                     history.go(0);
                 }

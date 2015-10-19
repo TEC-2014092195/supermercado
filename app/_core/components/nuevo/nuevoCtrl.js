@@ -1,3 +1,4 @@
+
 app.controller('nuevoCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
   var imgsrc = "";
   var producto = {};
