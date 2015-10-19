@@ -7,9 +7,17 @@ app.controller('productosCtrl', ['$scope', '$http', '$location', function($scope
         console.log("Ejecutado");
     };
     $scope.guardarDatos = function(obj) {
-        sessionStorage.setItem('producto', JSON.stringify(obj));
-        console.log(sessionStorage.getItem("producto"));
-        $location.path('/actualizar');
-        history.go(0);
+        var admin = sessionStorage.es_admin;
+        console.log(admin);
+        if (admin == 1){
+          sessionStorage.setItem('producto', JSON.stringify(obj));
+          console.log(sessionStorage.getItem("producto"));
+          $location.path('/actualizar');
+          history.go(0);
+        }
+        else{
+          alert("No es administrador");
+        }
+
     };
 }]);
