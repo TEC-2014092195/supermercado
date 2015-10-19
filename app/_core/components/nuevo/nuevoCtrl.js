@@ -1,6 +1,6 @@
-
+var imgsrc = "";
 app.controller('nuevoCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
-  var imgsrc = "";
+  
   var producto = {};
   var reader  = new FileReader();
   $scope.reg_producto = function(){
@@ -15,9 +15,12 @@ app.controller('nuevoCtrl', ['$scope', '$http', '$location', function($scope, $h
     var $promise = $http.post('_core/components/nuevo/insertar_producto.php',producto);
     $promise.then(function(msg) {
         // $scope.catalogoZona = msg.data;
+        console.log(msg.data);
+
     });
-    location.reload();
     alert("Producto Registrado");
+    $location.path('/home');
+    
   }
 
 }]);

@@ -1,14 +1,13 @@
 <?php
-
     $objeto = json_decode(file_get_contents('php://input'));
 
     $mysqli = new mysqli("localhost", "root", "", "supermercado");
 
-	/* check connection */
-	if (mysqli_connect_errno()) {
-	    printf("Connect failed: %s\n", mysqli_connect_error());
-	    exit();
-	}
+    /* check connection */
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
 
     $stmt = $mysqli->prepare("CALL insertarProducto(?, ?, ?, ?, ?, ?, ?)");
 

@@ -14,7 +14,7 @@ app.controller('actualizarCtrl', ['$scope', '$http', '$location', function($scop
     producto.descuento = $scope.descuento;
     producto.foto = imgsrc;
     //console.log(JSON.stringify(producto));
-    var $promise = $http.post('./actualizar_producto.php',producto);
+    var $promise = $http.post('_core/components/actualizar/actualizar_producto.php',producto);
     $promise.then(function(msg) {
         // $scope.catalogoZona = msg.data;
     });
