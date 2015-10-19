@@ -1,0 +1,51 @@
+<div ng-init="iniciar()">
+    <div class="ui padded grid">
+        <div class="row">
+            <div class="two wide column"></div>
+            <div class="twelve wide column">
+                <h2 class="ui header">
+              <i class="shop icon"></i>
+              <div class="content">
+                Catálogo de productos
+                <div class="sub header">Listado de productos registrados en el sistema</div>
+              </div>
+            </h2>
+                <div class="ui grid">
+                    <div class="four wide column" ng-repeat="post in posts" ng-click="guardarDatos(post)">
+                        <div class="ui green card">
+                            <div class="image">
+                                <img ng-src={{post.foto}}>
+                            </div>
+                            <div class="content">
+                                <a class="header">{{post.nombre}}</a>
+                                <div class="ui divided section list">
+                                    <a class="item">
+                                        <div class="ui orange horizontal label">Código:</div>
+                                        {{post.codigo}}
+                                    </a>
+                                    <a class="item">
+                                        <div class="ui orange horizontal label">Cantidad:</div>
+                                        {{post.cantidad}} unidades
+                                    </a>
+                                    <a class="item">
+                                        <div class="ui orange horizontal label">Costo:</div>
+                                        ₡{{post.costo}}
+                                    </a>
+                                    <a class="item">
+                                        <div class="ui orange horizontal label">Precio Final:</div>
+                                        ₡{{post.precio_final}}
+                                    </a>
+                                    <a class="item">
+                                        <div class="ui orange horizontal label">Descuento:</div>
+                                        {{post.descuento}}%
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column"></div>
+        </div>
+    </div>
+</div>

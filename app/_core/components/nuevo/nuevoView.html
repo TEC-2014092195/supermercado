@@ -1,0 +1,50 @@
+<div class="ui padded grid">
+    <div class="row">
+        <div class="four wide column"></div>
+        <div class="eight wide column">
+            <h2 class="ui header">
+              <i class="browser icon"></i>
+              <div class="content">
+                Registro de productos
+                <div class="sub header">Ingrese un producto nuevo al sistema. Debe completar todos los campos</div>
+              </div>
+            </h2>
+            <form class="ui form">
+                <div class="field">
+                    <label>Código del Producto</label>
+                    <input type="number" name="codigo" placeholder="Código" ng-model="codigo">
+                </div>
+                <div class="field">
+                    <label>Nombre del Producto</label>
+                    <input type="text" name="nombre" placeholder="Nombre" ng-model="nombre">
+                </div>
+                <div class="field">
+                    <label>Cantidad en Inventario</label>
+                    <input type="number" name="cantidad" placeholder="Cantidad en Inventario" ng-model="cantidad">
+                </div>
+                <div class="field">
+                    <label>Costo del Producto</label>
+                    <input type="number" name="costo" placeholder="Costo del Producto" ng-model="costo">
+                </div>
+                <div class="field">
+                    <label>Precio Final</label>
+                    <input type="number" name="precio_final" placeholder="Precio Final del Producto" ng-model="precio_final">
+                </div>
+                <div class="field">
+                    <label>Descuento</label>
+                    <input type="number" name="descuento" placeholder="Descuento" ng-model="descuento">
+                </div>
+                <div class="field">
+                    <label>Foto del Producto</label>
+                    <input class="ui button" type="file" onchange="previewFile()" id="foto">
+                    <br>
+                    <div class="ui small image">
+                        <img src="" alt="Vista previa...">
+                    </div>
+                </div>
+                <button class="fluid ui teal button" type="submit" ng-click="reg_producto()">Agregar Producto</button>
+            </form>
+        </div>
+        <div class="four wide column"></div>
+    </div>
+</div>

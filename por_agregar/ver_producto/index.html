@@ -8,9 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" type="text/css" href="semantic\/dist/semantic.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="jquery/dist/jquery.min.js"></script>
   <script src="semantic/dist/semantic.js"></script>
   <script src="JS/verproducto_controller.js"></script>
-  <script src="jquery/dist/jquery.min.js"></script>
+  
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                 <div class="four wide column" ng-repeat="post in posts" ng-click="guardarDatos(post)">
                   <div class="ui green card">
                     <div class="image">
-                      <img src={{post.foto}}>
+                      <img ng-src={{post.foto}}>
                     </div>
                     <div class="content">
                       <a class="header">{{post.nombre}}</a>

@@ -135,7 +135,13 @@ app.controller('loginCtrl', function($scope, $http, $location) {
         if ($validateResult) {
             $http.post('_core/components/login/loginUsuario.php',allFields)
             .then(function(message){
-                console.log(message);
+                
+                if(message.data === "Not Found"){
+                    alert('Intentelo de nuevo');
+                }else{
+                    $location.path('/home');
+                    history.go(0);
+                }
             });
 
         }
